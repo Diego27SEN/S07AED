@@ -1,31 +1,35 @@
-using UnityEngine;
 using Sirenix.OdinInspector;
+using UnityEditor;
+using UnityEngine;
 
 public class GameManager1 : MonoBehaviour
 {
-    public MyQueue<string> BankQueue = new MyQueue<string>();
+    public MyQueue<string> BankQueue = new();
 
+    public float speed = 0;
+    public float MaxSpeed = 100;
+
+
+    public PriorityQueue<EntityStats> priorityQueue =
+        new((a, b) => a.speed < b.speed);
     void Start()
     {
 
     }
-
     [Button]
     public void Enqueue(string name)
     {
         BankQueue.Enqueue(name);
     }
-
     [Button]
     public void Dequeue()
     {
-        Debug.Log("Pase a ser atendido:" + BankQueue.Dequeue());
+        Debug.Log("Pase a ser atendido : " + BankQueue.Dequeue());
     }
-
     [Button]
     public void Peek()
     {
-        Debug.Log("El siguiente en ser atendido sera " + BankQueue.Peek());
+        Debug.Log("El siguiente en ser atendido sera ... " + BankQueue.Peek());
     }
 
     [Button]
@@ -33,4 +37,13 @@ public class GameManager1 : MonoBehaviour
     {
         BankQueue.Clear();
     }
+
+    [Button]
+    public void Count()
+    {
+        Debug.Log(BankQueue.Count);
+    }
+
+
+
 }
