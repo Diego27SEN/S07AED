@@ -5,5 +5,5 @@ public class EntityStats : ScriptableObject
 {
     public string Name;
     public float speed;//->mayor velocidad
-    public float id;//->menor id
+    public int id;//->menor id
 }

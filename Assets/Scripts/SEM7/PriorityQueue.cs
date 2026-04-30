@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PriorityQueue<T>
@@ -82,6 +83,19 @@ public class PriorityQueue<T>
 
         return head.Value;
     }
+    public List<T> ToList()
+    {
+        var list = new List<T>();
+        var current = head;
+
+        while (current != null)
+        {
+            list.Add(current.Value);
+            current = current.Next;
+        }
+
+        return list;
+    }
     public void Clear()
     {
         head = null;
@@ -92,4 +106,5 @@ public class PriorityQueue<T>
     #region Getters
     public int Count => count;
     #endregion
+
 }

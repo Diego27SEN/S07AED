@@ -4,7 +4,6 @@ public class QueueNode<T>
 {
     #region Properties
     private T value;
-    private QueueNode<T> tail;
     private QueueNode<T> next;
     #endregion
 
