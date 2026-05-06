@@ -57,6 +57,22 @@ public class PriorityQueue<T>
         tail = newNode;*/
     }
 
+    public void SetComparator(Func<T, T, bool> newRule)
+    {
+        hasHigherPriority = newRule;
+        Rebuild();
+    }
+
+    private void Rebuild()
+    {
+        var elements = ToList();
+        Clear();
+
+        foreach (var e in elements)
+        {
+            Enqueue(e);
+        }
+    }
     public T Dequeue()
     {
         if (head == null)
